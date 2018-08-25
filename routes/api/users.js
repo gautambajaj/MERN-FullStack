@@ -14,12 +14,6 @@ const validateLoginInput = require('../../validation/login');
 const User = require('../../models/Users');
 
 
-// @route GET api/users/test
-// @desc Tests users route
-// @access Public
-router.get('/test', (req,res) => res.json({msg: "Users works"}));
-
-
 // @route GET api/users/register
 // @desc Register User
 // @access Public
