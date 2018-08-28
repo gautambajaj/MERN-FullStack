@@ -19,6 +19,12 @@ class Register extends Component {
 		this.onSubmit = this.onSubmit.bind(this);
 	}
 
+	componentDidMount(){
+		if(this.props.auth.isAuthenticated){
+			this.props.history.push('/dashboard');
+		}
+	}
+
 	componentWillReceiveProps(nextProps){
 		if(nextProps.errors){
 			this.setState({errors: nextProps.errors})
@@ -78,7 +84,9 @@ class Register extends Component {
 		            	value={this.state.email}
 		            	onChange={this.onChange}
 		              />
-		              {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
+		              {errors.email && (
+		              	<div className="invalid-feedback">{errors.email}</div>
+		              )}
 		              <small className="form-text text-muted">This site uses Gravatar so if you want a profile image, use a Gravatar email</small>
 		            </div>
 
